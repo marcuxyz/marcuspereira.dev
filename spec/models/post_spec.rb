@@ -7,38 +7,30 @@ RSpec.describe Post, type: :model do
     it { should validate_presence_of(:description) }
     it { should validate_presence_of(:slug) }
 
-    # context 'associations' do
-    #   it { should belong_to(:category) }
-    #   it { should have_many(:resources) }
-    # end
+    context 'associations' do
+      it { should belong_to(:category) }
+    end
 
-    # context 'should have specific status' do
-    #   it { should define_enum_for(:status) }
-    #   it do
-    #     should define_enum_for(:status).with_values %i[draft published]
-    #   end
-    # end
+    context 'should have specific status' do
+      it { should define_enum_for(:status) }
+      it do
+        should define_enum_for(:status).with_values %i[draft published]
+      end
+    end
 
-    # it 'should have categories' do
-    #   category = create(:category)
-    #   content = create(:content, category:)
+    it 'should have categories' do
+      category = create(:category)
+      post = create(:post, category:)
 
-    #   expect(content.category).to eq(category)
-    # end
+      expect(post.category).to eq(category)
+    end
 
-    # it 'should have resources' do
-    #   content = create(:content)
-    #   resource = create(:resource, content:)
+    it 'should create slug' do
+      category = create(:category)
+      post = create(:post, title: 'Creating columns in SQL database', category:)
 
-    #   expect(content.resources).to include(resource)
-    # end
-
-    # it 'should create slug' do
-    #   category = create(:category)
-    #   content = create(:content, name: 'Creating columns in SQL database', category:)
-
-    #   expect(content.slug).to be_present
-    #   expect(content.slug).to eq('creating-columns-in-sql-database')
-    # end
+      expect(post.slug).to be_present
+      expect(post.slug).to eq('creating-columns-in-sql-database')
+    end
   end
 end
