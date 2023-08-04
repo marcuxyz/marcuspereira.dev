@@ -59,8 +59,9 @@ a:hover {
 }
 
 .avatar {
-  width : 78px;
+  width : 48px;
   height: auto;
+  border-radius: 50%;
 }
 
 .text-right {
