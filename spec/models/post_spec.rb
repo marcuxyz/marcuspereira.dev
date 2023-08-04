@@ -25,6 +25,12 @@ RSpec.describe Post, type: :model do
       expect(post.category).to eq(category)
     end
 
+    it 'should have attachments' do
+      post = create(:post, :with_attachment)
+
+      expect(post.attachment.attached?).to be_truthy
+    end
+
     it 'should create slug' do
       category = create(:category)
       post = create(:post, title: 'Creating columns in SQL database', category:)

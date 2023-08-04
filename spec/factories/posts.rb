@@ -16,10 +16,10 @@ FactoryBot.define do
       VIDEO
     end
 
-    # trait :with_resources do
-    #   after(:create) do |content|
-    #     create_list(:resource, 2, :with_file, content:)
-    #   end
-    # end
+    trait :with_attachment do
+      after(:create) do |post|
+        post.attachment.attach(io: File.open('spec/support/files/code.rb'), filename: 'code.rb')
+      end
+    end
   end
 end
