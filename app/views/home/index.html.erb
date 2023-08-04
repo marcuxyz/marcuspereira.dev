@@ -2,7 +2,7 @@
   <% if @posts.present? %>
     <h1>Conteúdos</h1>
     <p>Escolha um conteúdo e clique em seu nome para obter continuar lendo.</p>
-    <%= render 'contents/content', { posts: @posts } %>
+    <%= render 'posts/post', { posts: @posts } %>
   <% else %>
     <h1 class="text-center">Não existe conteúdo para exibir</h1>
   <% end %>

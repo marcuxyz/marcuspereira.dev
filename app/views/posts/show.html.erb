@@ -2,15 +2,15 @@
   <div class="grid">
     <div>
       <article>
-        <h3 class="text-center"><%= @content.name %></h3>
+        <h3 class="text-center"><%= @post.title %></h3>
       </article>
     </div>
   </div>
 
-  <% if  @content.embeded_video.html_safe.present? %>
+  <% if  @post.embeded_video.html_safe.present? %>
     <div class="grid">
       <div>
-        <%= @content.embeded_video.html_safe %>
+        <%= @post.embeded_video.html_safe %>
       </div>
     </div>
   <% end %>
@@ -20,7 +20,7 @@
   <div class="grid">
     <div>
       <p>
-        <%= @content.body %>
+        <%= @post.content %>
       </p>
     </div>
   </div>
