@@ -1,16 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR" data-theme="dark">
   <head>
-    <title>MarcuspereiraApp</title>
+    <title>Marcus Pereira - Aprenda a desenvolver aplicações de maneira divertida</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= image_path 'apple-touch-icon.png' %> ">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= image_path 'favicon-32x32.png' %> ">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= image_path 'favicon-16x16.png' %> ">
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
     <%= javascript_importmap_tags %>
+
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'shared/navbar' %>
+
+    <main class="container">
+      <% if flash[:alert] %>
+        <div class="alert"><%= flash[:alert] %></div>
+      <% end %>
+
+      <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+      <% end %>
+
+      <%= yield %>
+    </main>
+
+    <%= render 'shared/footer' %>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </body>
 </html>
