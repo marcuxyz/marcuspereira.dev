@@ -1,0 +1,90 @@
+html,
+body {
+  display         : flex;
+  min-height      : 100vh;
+  flex-direction  : column;
+  background-color: #11191f !important;
+}
+
+main {
+  flex: 1;
+}
+
+.grid.contents {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+.navbar strong {
+  color: #fff;
+}
+
+.spacing {
+  margin: 3vh 0px !important;
+}
+
+nav ul li strong {
+  margin-left: 5px;
+}
+
+ion-icon {
+  font-size: 30px;
+  color: #fff;
+}
+
+[data-category]:before {
+  background: #ff00a6;
+  content   : attr(data-category);
+}
+
+[data-category]:before {
+  display      : block;
+  position     : absolute;
+  top          : 0;
+  right        : 0;
+  padding      : 0.375rem 0.75rem;
+  border-radius: 0;
+  color        : var(--primary-inverse);
+  font-size    : 14px;
+  line-height  : 1;
+}
+
+a {
+  color          : aliceblue;
+}
+
+a:hover {
+  color: rgb(216, 232, 248);
+  text-decoration: none;
+
+}
+
+.avatar {
+  width : 78px;
+  height: auto;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.contents article {
+  display        : grid;
+  justify-content: center;
+  align-items    : center;
+  height         : 279px !important;
+  position       : relative !important;
+}
+
+th,
+td {
+  text-align: center;
+}
+
+
+footer {
+  background-color: #18242c;
+}
