@@ -1,24 +1,22 @@
-# README
+## Configuração do projeto
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+O primeiro passo para configurar as **variáveis de ambiente** é alterar o arquivo `example.env` para `.env`. Cada variável de ambiente representa um
+serviço da aplicação que está comentada em português.
 
-Things you may want to cover:
 
-* Ruby version
+## Executando o projeto
 
-* System dependencies
+Você pode executar o projeto utilizando o Docker. Primeiro acesse o diretório do projeto utilizando o terminal do sistema e depois execute o comando:
 
-* Configuration
+```shell
+docker compose run --service-ports --rm web bash
+```
+Após acessar o container, rode o comando `bin/setup` para instalar as gems, criar banco de dados e rodar as migrations. E então, você poderá rodar o comando `rails server -b 0.0.0.0` para conseguir acessar o sistema através da URL.
 
-* Database creation
+http://localhost:3000
 
-* Database initialization
+Lembre-se que se você quiser iniciar o sistema já com alguns dados criados, será necessário rodar as seeds antes de iniciar o servidor.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```shell
+rails db:seed
+```
