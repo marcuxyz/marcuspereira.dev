@@ -10,11 +10,23 @@ feature 'Users can login' do
       fill_in 'Senha', with: user.password
       click_on 'Entrar'
 
+      expect(page).to have_http_status(:success)
       expect(page).to have_content 'Login efetuado com sucesso.'
     end
 
+    scenario 'at admin page' do
+      user = create(:user, :confirmed, password: '129842#abc')
+
+      visit admin_root_path
+      fill_in 'E-mail', with: user.email
+      fill_in 'Senha', with: user.password
+      click_on 'Entrar'
+
+      expect(page).to have_current_path(admin_root_path)
+    end
+
     scenario 'visitors cannot access admin page' do
-      visit new_user_session_path
+      visit admin_root_path
 
       expect(page).to have_current_path(new_user_session_path)
     end

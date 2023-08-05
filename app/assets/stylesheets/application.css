@@ -12,4 +12,5 @@
  *
  *= require_tree .
  *= require_self
+//= link administrate-field-active_storage/application.css
  */
