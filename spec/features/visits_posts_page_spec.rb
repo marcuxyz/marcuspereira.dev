@@ -20,7 +20,7 @@ feature 'Visits Post page' do
       visit post_path(post)
 
       expect(page).to have_content(post.title)
-      expect(page).to have_content(post.content)
+      expect(page).to have_content(post.content.to_plain_text)
     end
 
     scenario 'should view the post if it has been published' do
