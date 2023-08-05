@@ -11,19 +11,18 @@ gem 'rails', '~> 7.0.6'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
-# gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'administrate'
-gem 'administrate-field-active_storage', '~> 0.4.2'
 gem 'bootsnap', require: false
 gem 'devise', '~> 4.9'
 gem 'friendly_id', '~> 5.5'
 
-# gem "sassc-rails"
+gem 'sassc-rails'
+
+gem 'avo'
 
 gem 'image_processing', '~> 1.2'
 
