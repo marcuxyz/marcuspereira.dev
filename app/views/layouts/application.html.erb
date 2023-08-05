@@ -15,11 +15,11 @@
 
     <main class="container">
       <% if flash[:alert] %>
-        <div class="alert"><%= flash[:alert] %></div>
+        <p class="alert"><%= flash[:alert] %></p>
       <% end %>
 
       <% if flash[:notice] %>
-        <div class="notice"><%= flash[:notice] %></div>
+        <p class="notice"><%= flash[:notice] %></p>
       <% end %>
 
       <%= yield %>
