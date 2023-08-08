@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
-  namespace :admin, path: ENV.fetch('ADMIN_ROUTE_PATH', '/admin') do
-    resources :categories
-    resources :posts
-    resources :users
-
-    root to: "categories#index"
+  authenticate :user do
+    mount Avo::Engine, at: Avo.configuration.root_path
   end
 
   devise_for :users
