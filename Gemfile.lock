@@ -91,6 +91,8 @@ GEM
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    bundle-audit (0.1.0)
+      bundler-audit
     bundler-audit (0.9.1)
       bundler (>= 1.2.0, < 3)
       thor (~> 1.0)
@@ -337,6 +339,7 @@ PLATFORMS
 DEPENDENCIES
   avo
   bootsnap
+  bundle-audit (~> 0.1.0)
   bundler-audit (~> 0.9.1)
   capybara
   debug

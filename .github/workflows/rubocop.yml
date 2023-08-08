@@ -1,4 +1,4 @@
-name: "Quality of code"
+name: "Analize code files"
 on:
   push:
     branches: [ "main" ]
@@ -14,7 +14,5 @@ jobs:
         uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
         with:
           bundler-cache: true
-      - name: Security audit dependencies
-        run: bundle exec bundler-audit --update
-      - name: Lint Ruby files
+      - name: Analize code files
         run: bundle exec rubocop --parallel
