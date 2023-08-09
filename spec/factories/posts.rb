@@ -7,13 +7,17 @@ FactoryBot.define do
     status         { :published }
     category
 
-    embeded_video do
-      <<-VIDEO
-        <iframe width="100%" height="675" src="https://www.youtube.com/embed/L9rtI1YPRwY?controls=0"
-        title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
-      VIDEO
+    trait :with_embeded_video do
+      after(:create) do |post|
+        post.embeded_video =
+          <<-VIDEO
+            <iframe width="100%" height="675" src="https://www.youtube.com/embed/L9rtI1YPRwY?controls=0"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+          VIDEO
+        post.save!
+      end
     end
 
     trait :with_attachment do

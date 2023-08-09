@@ -7,10 +7,19 @@
     </div>
   </div>
 
-  <% if  @post.embeded_video.html_safe.present? %>
+  <% if  @post.embeded_video.present? %>
     <div class="grid">
       <div>
         <%= @post.embeded_video.html_safe %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @post.attachment.attached? && @post.audio? %>
+    <h3 class="text-left">🎧 Áudio</h3>
+    <div class="grid">
+      <div>
+        <%= audio_tag(polymorphic_path(@post.attachment), controls: true) %>
       </div>
     </div>
   <% end %>

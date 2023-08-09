@@ -24,7 +24,7 @@ feature 'Visits Post page' do
     end
 
     scenario 'should view the post if it has been published' do
-      post = create(:post, status: :draft, category:)
+      post = create(:post, :with_embeded_video, status: :draft, category:)
 
       visit post_path(post)
 
@@ -32,6 +32,15 @@ feature 'Visits Post page' do
       expect(page).not_to have_content(post.title)
       expect(page).not_to have_content(post.content)
       expect(page).not_to have_content(post.embeded_video)
+    end
+
+    scenario 'should view the post that contains audio' do
+      post = create(:post, status: :published, category:)
+      post.attachment.attach(io: File.open('spec/support/files/audio.m4a'), filename: 'audio.m4a')
+
+      visit post_path(post)
+
+      expect(page).to have_css("audio[src*='audio.m4a']")
     end
   end
 end

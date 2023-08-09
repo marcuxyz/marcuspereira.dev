@@ -31,6 +31,10 @@ ion-icon {
   color: #fff;
 }
 
+audio {
+  width: 100%;
+}
+
 [data-category]:before {
   background: #ff00a6;
   content   : attr(data-category);
@@ -56,6 +60,11 @@ a:hover {
   color: rgb(216, 232, 248);
   text-decoration: none;
 
+}
+
+a:is([aria-current], :hover, :active, :focus), [role=link]:is([aria-current], :hover, :active, :focus) {
+  color: initial !important;
+  text-decoration: none !important ;
 }
 
 .avatar {
