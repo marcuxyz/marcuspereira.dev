@@ -25,5 +25,11 @@ FactoryBot.define do
         post.attachment.attach(io: File.open('spec/support/files/code.rb'), filename: 'code.rb')
       end
     end
+
+    trait :with_audio do
+      after(:create) do |post|
+        post.attachment.attach(io: File.open('spec/support/files/audio.m4a'), filename: 'audio.m4a')
+      end
+    end
   end
 end

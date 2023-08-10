@@ -18,25 +18,31 @@ RSpec.describe Post, type: :model do
       end
     end
 
-    it 'should have categories' do
-      category = create(:category)
-      post = create(:post, category:)
+    context 'should have category' do
+      let(:category) { create(:category) }
+      let(:post) { create(:post, category:) }
 
-      expect(post.category).to eq(category)
+      it { expect(post.category).to eq(category) }
     end
 
-    it 'should have attachments' do
-      post = create(:post, :with_attachment)
+    context 'should have attachments' do
+      let(:post) { create(:post, :with_attachment) }
 
-      expect(post.attachment.attached?).to be_truthy
+      it { expect(post.attachment.attached?).to be_truthy }
     end
 
-    it 'should create slug' do
-      category = create(:category)
-      post = create(:post, title: 'Creating columns in SQL database', category:)
+    context 'should create slug' do
+      let(:post) { create(:post, title: 'Creating columns in SQL database') }
 
-      expect(post.slug).to be_present
-      expect(post.slug).to eq('creating-columns-in-sql-database')
+      it { expect(post.slug).to be_present }
+      it { expect(post.slug).to eq('creating-columns-in-sql-database') }
+    end
+
+    context 'should have audio' do
+      let(:post) { create(:post, :with_audio) }
+
+      it { expect(post.attachment.attached?).to be_truthy }
+      it { expect(post.attachment.content_type).to eq('audio/mp4') }
     end
   end
 end
