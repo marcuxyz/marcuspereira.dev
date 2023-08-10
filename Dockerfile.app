@@ -7,11 +7,11 @@ RUN apt-get install -y --no-install-recommends build-essential imagemagick
 
 WORKDIR /app
 
-COPY Gemfile Gemfile.lock bin ./
+COPY ../Gemfile ../Gemfile.lock ./
+
+RUN bundle install
 
 COPY . .
-
-RUN bin/setup
 
 EXPOSE 3000
 
