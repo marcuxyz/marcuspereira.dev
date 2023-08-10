@@ -17,7 +17,6 @@ Bundler.require(*Rails.groups)
 module MarcuspereiraApp
   class Application < Rails::Application
     config.load_defaults 7.0
-
     config.time_zone = 'America/Sao_Paulo'
     config.i18n.default_locale = :'pt-BR'
 
