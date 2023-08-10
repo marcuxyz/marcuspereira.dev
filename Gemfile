@@ -47,3 +47,5 @@ group :development do
   gem 'rubocop-rails', require: false
   gem 'web-console'
 end
+
+gem "aws-sdk-s3", "~> 1.132"
