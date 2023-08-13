@@ -94,6 +94,10 @@ td {
   text-align: center;
 }
 
+.trix-content pre {
+  background-color: white !important;
+  overflow-x:initial !important;
+}
 
 footer {
   background-color: #18242c;
