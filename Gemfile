@@ -27,6 +27,8 @@ gem 'avo'
 
 gem 'image_processing', '~> 1.2'
 
+gem 'aws-sdk-s3', '~> 1.132'
+
 gem 'bundle-audit', '~> 0.1.0'
 
 group :development, :test do
@@ -47,5 +49,3 @@ group :development do
   gem 'rubocop-rails', require: false
   gem 'web-console'
 end
-
-gem 'aws-sdk-s3', '~> 1.132'
