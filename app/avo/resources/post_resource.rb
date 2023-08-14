@@ -10,14 +10,11 @@ class PostResource < Avo::BaseResource
   }
 
   field :id, as: :id
-  # Fields generated from the model
   field :title, as: :text
-  field :slug, as: :text
   field :content, as: :trix
   field :description, as: :trix
   field :status, as: :select, enum: ::Post.statuses
   field :embeded_video, as: :textarea
   field :attachment, as: :file
   field :category, as: :belongs_to
-  # add fields here
 end

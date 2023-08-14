@@ -18,6 +18,16 @@ RSpec.describe Post, type: :model do
       end
     end
 
+    context 'should update slug if title changed' do
+      let(:post) { create(:post, title: 'Desenvolvendo aplicações com Ruby') }
+
+      it {
+        expect do
+          post.update!(title: 'Sinatra como API!')
+        end.to change(post, :slug).from('desenvolvendo-aplicacoes-com-ruby').to('sinatra-como-api')
+      }
+    end
+
     context 'should have category' do
       let(:category) { create(:category) }
       let(:post) { create(:post, category:) }

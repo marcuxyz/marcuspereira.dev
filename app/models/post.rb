@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   extend FriendlyId
-  friendly_id :title, use: :slugged
+  friendly_id :title, use: %i[slugged finders]
 
   has_one_attached :attachment
   has_rich_text :content
@@ -14,5 +14,11 @@ class Post < ApplicationRecord
 
   def audio?
     ['audio/mp4', 'audio/mp3', 'audio/m4a'].include? attachment.content_type
+  end
+
+  private
+
+  def should_generate_new_friendly_id?
+    title_changed?
   end
 end

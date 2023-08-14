@@ -8,6 +8,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    @post = Post.friendly.find(params[:id])
+    @post = Post.find(params[:id])
   end
 end
