@@ -1,9 +1,11 @@
 FROM ruby:3.2.0
 
-ENV BUNDLER_VERSION 2.4.15
+ENV NODE_VERSION 18
+
+RUN curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION}.x
 
 RUN apt-get update -y
-RUN apt-get install -y --no-install-recommends build-essential imagemagick
+RUN apt-get install -y --no-install-recommends nodejs npm build-essential imagemagick
 
 WORKDIR /app
 

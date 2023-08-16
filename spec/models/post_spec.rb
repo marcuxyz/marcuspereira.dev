@@ -28,6 +28,18 @@ RSpec.describe Post, type: :model do
       }
     end
 
+    context 'should have 7 minutes to read content' do
+      let(:post) { create(:post, content: Faker::Lorem.paragraph(sentence_count: 550)) }
+
+      it { expect(post.estimated_reading_time).to eq('7 minutos de leitura') }
+    end
+
+    context 'should have 0 minutes to read content' do
+      let(:post) { create(:post, content: Faker::Lorem.paragraph(sentence_count: 5)) }
+
+      it { expect(post.estimated_reading_time).to eq('1 minuto de leitura') }
+    end
+
     context 'should have category' do
       let(:category) { create(:category) }
       let(:post) { create(:post, category:) }

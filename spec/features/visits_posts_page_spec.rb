@@ -14,13 +14,30 @@ feature 'Visits Post page' do
       expect(page).to have_content(post.title)
     end
 
-    scenario 'should view post' do
-      post = create(:post, status: :published, category:)
+    context 'should view post' do
+      let(:post) { create(:post, status: :published) }
+      scenario 'successfully' do
+        visit post_path(post)
 
-      visit post_path(post)
+        expect(page).to have_content(post.title)
+        expect(page).to have_content(post.content.to_plain_text)
+      end
 
-      expect(page).to have_content(post.title)
-      expect(page).to have_content(post.content.to_plain_text)
+      scenario 'and view 7 minutes read' do
+        post.update(content: Faker::Lorem.paragraph(sentence_count: 550))
+
+        visit post_path(post)
+
+        expect(page).to have_content('7 minutos de leitura')
+      end
+
+      scenario 'and view 1 minute read' do
+        post.update(content: Faker::Lorem.paragraph(sentence_count: 5))
+
+        visit post_path(post)
+
+        expect(page).to have_content('1 minuto de leitura')
+      end
     end
 
     scenario 'should view the post if it has been published' do
