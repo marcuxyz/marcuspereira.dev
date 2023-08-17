@@ -7,5 +7,5 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  resources :posts, only: %i[show]
+  resources :posts, only: %i[show], path: :notas
 end
