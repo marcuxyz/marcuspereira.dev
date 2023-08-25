@@ -4,6 +4,7 @@ const languages = [
   'ruby',
   'erb',
   'bash',
+  'yaml',
   'sql',
   'javascript',
   'python'
