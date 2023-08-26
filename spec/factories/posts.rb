@@ -3,7 +3,6 @@ FactoryBot.define do
     title          { Faker::Lorem.sentence(word_count: 3) }
     slug           { title.parameterize }
     content        { Faker::Lorem.paragraph(sentence_count: 5) }
-    description    { Faker::Lorem.paragraph(sentence_count: 15) }
     status         { :published }
     category
 

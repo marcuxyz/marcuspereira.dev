@@ -12,7 +12,6 @@ class PostResource < Avo::BaseResource
   field :id, as: :id
   field :title, as: :text
   field :content, as: :trix
-  field :description, as: :trix
   field :status, as: :select, enum: ::Post.statuses
   field :embeded_video, as: :textarea
   field :attachment, as: :file

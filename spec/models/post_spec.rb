@@ -4,7 +4,6 @@ RSpec.describe Post, type: :model do
   context 'presence' do
     it { should validate_presence_of(:title) }
     it { should validate_presence_of(:content) }
-    it { should validate_presence_of(:description) }
     it { should validate_presence_of(:slug) }
 
     context 'associations' do
