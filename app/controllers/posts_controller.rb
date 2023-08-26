@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :post_params, only: %i[show]
 
   def show
-    return not_found unless @post.published?
+    not_found unless @post.published?
   end
 
   private

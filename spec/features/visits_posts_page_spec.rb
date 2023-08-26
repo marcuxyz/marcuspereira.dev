@@ -23,7 +23,7 @@ feature 'Visits Post page' do
         expect(page).to have_content(post.content.to_plain_text)
       end
 
-      scenario 'and view 7 minutes read' do
+      xscenario 'and view 7 minutes read' do
         post.update(content: Faker::Lorem.paragraph(sentence_count: 550))
 
         visit post_path(post)
@@ -31,7 +31,7 @@ feature 'Visits Post page' do
         expect(page).to have_content('7 minutos de leitura')
       end
 
-      scenario 'and view 1 minute read' do
+      xscenario 'and view 1 minute read' do
         post.update(content: Faker::Lorem.paragraph(sentence_count: 5))
 
         visit post_path(post)

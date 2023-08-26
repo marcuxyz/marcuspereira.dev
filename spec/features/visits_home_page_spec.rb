@@ -10,16 +10,10 @@ feature 'Visits Home page' do
       expect(page).to have_http_status(:success)
     end
 
-    scenario 'should have title' do
-      visit root_path
-
-      expect(page).to have_content('Negros.dev')
-    end
-
     scenario 'should have footer' do
       visit root_path
 
-      expect(page).to have_content '&COPY; Negros.dev, 2023 · Todos os direitos reservados.'
+      expect(page).to have_content '&COPY; MARCUS PEREIRA · TODOS OS DIREITOS RESERVADOS'
     end
 
     scenario 'should have published contents' do

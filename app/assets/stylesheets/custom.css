@@ -31,7 +31,14 @@ nav ul li strong {
 
 ion-icon {
   font-size: 30px;
+}
+
+:not([data-theme=light]) ion-icon {
   color: #fff;
+}
+
+:not([data-theme=dark]) ion-icon {
+  color: #000 !important;
 }
 
 audio {
@@ -39,7 +46,7 @@ audio {
 }
 
 [data-category]:before {
-  background: #ff00a6;
+  background: #2b081f;
   content   : attr(data-category);
 }
 
@@ -103,5 +110,9 @@ td {
 }
 
 footer {
-  background-color: #18242c;
+  background-color: #000;
+}
+footer p {
+  color: #fff !important;
+
 }
