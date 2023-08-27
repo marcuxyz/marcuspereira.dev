@@ -14,7 +14,7 @@ main {
 }
 
 .navbar strong {
-  color: #fff;
+  color: #000;
 }
 
 .spacing {
@@ -60,6 +60,7 @@ audio {
   color        : var(--primary-inverse);
   font-size    : 14px;
   line-height  : 1;
+  text-transform: uppercase;
 }
 
 a {
