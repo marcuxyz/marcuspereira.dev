@@ -5,6 +5,7 @@ const languages = [
   'erb',
   'bash',
   'yaml',
+  'json',
   'sql',
   'javascript',
   'python'
