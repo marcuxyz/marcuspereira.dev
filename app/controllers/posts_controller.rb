@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :post_params, only: %i[show]
 
   def index
-    @posts = Post.all
+    @posts = Post.published
   end
 
   def show

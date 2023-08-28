@@ -21,6 +21,17 @@ feature 'Visits Posts page' do
         expect(page).to have_css('.published_content', count: 10)
       end
     end
+
+    scenario 'should display 6+ posts' do
+      published_post = create(:post, status: :published)
+      draft_post = create(:post, status: :draft)
+
+      visit posts_path
+
+      expect(page).to have_content(published_post.title)
+      expect(page).not_to have_content(draft_post.title)
+    end
+
     scenario 'must redirect to post page' do
       post = create(:post, status: :published)
 
