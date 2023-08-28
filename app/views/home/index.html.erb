@@ -1,8 +1,11 @@
 <section class='contents'>
   <% if @posts.present? %>
-    <h1>Conteúdos</h1>
-    <p>Dicas e tutoriais de desenvolvimento de software com contéudos feitos em vídeos, áudios e escritos. </p>
+    <h1>Notas</h1>
+    <p>Pequenas notas escritas focadas no desenvolvimento rápido e prático.</p>
     <%= render 'posts/post', { posts: @posts } %>
+    <div class="text-right">
+      <%= link_to 'Exibir todas as notas', posts_path %>
+    </div>
   <% else %>
     <h1 class="text-center">Não existe conteúdo para exibir</h1>
   <% end %>
