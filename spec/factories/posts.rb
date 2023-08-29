@@ -4,6 +4,7 @@ FactoryBot.define do
     slug           { title.parameterize }
     content        { Faker::Lorem.paragraph(sentence_count: 5) }
     status         { :published }
+    news           { [true, false].sample }
     category
 
     trait :with_embeded_video do

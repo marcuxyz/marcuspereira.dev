@@ -39,6 +39,12 @@ RSpec.describe Post, type: :model do
       it { expect(post.estimated_reading_time).to eq('1 minuto de leitura') }
     end
 
+    context 'must be news' do
+      let(:post) { create(:post, news: true) }
+
+      it { expect(post.news?).to be_truthy }
+    end
+
     context 'should have category' do
       let(:category) { create(:category) }
       let(:post) { create(:post, category:) }
