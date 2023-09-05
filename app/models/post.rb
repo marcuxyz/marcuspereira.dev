@@ -7,6 +7,8 @@ class Post < ApplicationRecord
 
   enum status: { draft: 0, published: 1 }
 
+  scope :filter_by_title, ->(title) { where('title LIKE ?', "%#{title}%") }
+
   validates :title, :content, :slug, presence: true
 
   belongs_to :category
