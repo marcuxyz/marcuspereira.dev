@@ -1,7 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe 'Routes for home', type: :routing do
-  context 'routes / to the HomeController' do
-    it { expect(get: '/').to route_to(controller: 'home', action: 'index') }
+RSpec.describe 'Routes for posts', type: :routing do
+  context 'routes /notas to the PostsController' do
+    it { expect(get: '/notas').to route_to(controller: 'posts', action: 'index') }
+  end
+
+  context 'routes /notas/1 to the PostsController' do
+    it { expect(get: '/notas/1').to route_to(controller: 'posts', action: 'show', id: '1') }
   end
 end
