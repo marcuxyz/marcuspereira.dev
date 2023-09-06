@@ -7,5 +7,7 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  resources :posts, only: %i[index show], path: :notas
+  resources :posts, only: %i[index show], path: :notas do
+    get :search, on: :collection, path: :buscar
+  end
 end

@@ -29,7 +29,7 @@ RSpec.describe Post, type: :model do
     end
 
     context 'searches posts from title' do
-      let(:post) { Post.filter_by_title('is the best') }
+      let(:post) { Post.filter_by_title('is tHe BeSt') }
 
       before do
         create(:post, title: 'Ruby On Rails is the best framework for web')
