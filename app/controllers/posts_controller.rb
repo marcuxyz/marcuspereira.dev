@@ -9,6 +9,12 @@ class PostsController < ApplicationController
     not_found unless @post.published?
   end
 
+  def search
+    @posts = Post.filter_by_title(params[:q])
+
+    render 'index'
+  end
+
   private
 
   def post_params

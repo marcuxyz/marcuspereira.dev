@@ -12,6 +12,7 @@ RSpec.describe Post, type: :model do
 
     context 'should have specific status' do
       it { should define_enum_for(:status) }
+
       it do
         should define_enum_for(:status).with_values %i[draft published]
       end
@@ -25,6 +26,19 @@ RSpec.describe Post, type: :model do
           post.update!(title: 'Sinatra como API!')
         end.to change(post, :slug).from('desenvolvendo-aplicacoes-com-ruby').to('sinatra-como-api')
       }
+    end
+
+    context 'searches posts from title' do
+      let(:post) { Post.filter_by_title('is tHe BeSt') }
+
+      before do
+        create(:post, title: 'Ruby On Rails is the best framework for web')
+        create_list(:post, 5, title: Faker::Lorem.sentence)
+      end
+
+      it { expect(post.count).to      be_positive }
+      it { expect(post.count).to      eq(1) }
+      it { expect(post.last.title).to eq('Ruby On Rails is the best framework for web') }
     end
 
     context 'should have 7 minutes to read content' do

@@ -17,23 +17,18 @@ gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
+gem 'avo'
+gem 'aws-sdk-s3', '~> 1.132'
 gem 'bootsnap', require: false
 gem 'devise', '~> 4.9'
 gem 'friendly_id', '~> 5.5'
-
-gem 'sassc-rails'
-
-gem 'avo'
-
 gem 'image_processing', '~> 1.2'
-
-gem 'aws-sdk-s3', '~> 1.132'
-
-gem 'bundle-audit', '~> 0.1.0'
+gem 'sassc-rails'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
 
+  gem 'bundle-audit', '~> 0.1.0'
   gem 'bundler-audit', '~> 0.9.1'
   gem 'capybara'
   gem 'dotenv-rails'
