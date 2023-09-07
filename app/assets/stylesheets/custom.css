@@ -17,6 +17,18 @@ section {
   grid-template-columns: repeat(3, 1fr) !important;
 }
 
+@media only screen and (max-width: 768px) {
+  .grid.contents {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+  .grid.contents {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
 .navbar strong,
 .navbar a {
   color: #000;
@@ -114,10 +126,14 @@ td {
   text-align: center;
 }
 
+/* trix editor */
+
 .trix-content pre {
   background-color: #130013 !important;
   overflow-x      : initial !important;
 }
+
+/* footer */
 
 footer {
   background-color: #000;
@@ -125,5 +141,4 @@ footer {
 
 footer p {
   color: #fff !important;
-
 }
