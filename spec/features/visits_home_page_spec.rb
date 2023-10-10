@@ -16,7 +16,7 @@ feature 'Visits Home page' do
       expect(page).to have_content '&COPY; MARCUS PEREIRA · TODOS OS DIREITOS RESERVADOS'
     end
 
-    scenario 'should have published contents' do
+    scenario 'should have only published contents' do
       create(:post, title: 'Creating columns in SQL database', status: :published, category:)
 
       visit root_path
@@ -31,7 +31,7 @@ feature 'Visits Home page' do
       visit root_path
 
       contents.each do |_content|
-        expect(page).to have_css('.contents article', count: 6)
+        expect(page).to have_css('.contents article', count: 8)
       end
     end
 

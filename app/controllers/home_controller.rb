@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @posts = Post.includes(:category).published.order('created_at DESC').limit(6)
+    @posts = Post.includes(:category).published.order('created_at DESC').limit(8)
   end
 
   def search
