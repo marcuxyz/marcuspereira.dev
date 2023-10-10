@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="light">
+<html lang="pt-BR" data-theme="dark">
   <head>
     <title>Marcus Pereira - Aprenda a desenvolver aplicações de maneira divertida</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -24,7 +24,9 @@
         <p class="notice"><%= flash[:notice] %></p>
       <% end %>
 
-      <%= yield %>
+      <section>
+        <%= yield %>
+      </section>
     </main>
 
     <%= render 'shared/footer' %>

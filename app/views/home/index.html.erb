@@ -1,12 +1,16 @@
-<section class='contents'>
+<section>
+  <%= render 'posts/form' %>
+</section>
+
+<div class='grid contents'>
   <% if @posts.present? %>
-    <h1>Notas</h1>
-    <p>Pequenas notas escritas focadas no desenvolvimento rápido e prático.</p>
-    <%= render 'posts/post', { posts: @posts } %>
-    <div class="text-right">
-      <%= link_to 'Exibir todas as notas', posts_path %>
-    </div>
+    <% @posts.each do |post| %>
+      <div>
+        <%= render 'posts/post', { post: post } %>
+        <hr />
+      </div>
+    <% end %>
   <% else %>
     <h1 class="text-center">Não existe conteúdo para exibir</h1>
   <% end %>
-</section>
+</div>
