@@ -61,6 +61,10 @@ article>header {
   gap                  : 1.8rem;
 }
 
+.contents .text {
+  font-size: 1.3em;
+}
+
 hr {
   margin-top: 3rem;
 }
