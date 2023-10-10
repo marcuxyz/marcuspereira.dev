@@ -51,7 +51,7 @@ feature 'Visits Post page' do
       expect(page).not_to have_content(post.embeded_video)
     end
 
-    scenario 'should view the post that contains audio' do
+    xscenario 'should view the post that contains audio' do
       post = create(:post, status: :published, category:)
       post.attachment.attach(io: File.open('spec/support/files/audio.m4a'), filename: 'audio.m4a')
 

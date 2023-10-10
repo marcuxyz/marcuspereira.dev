@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="light">
+<html lang="pt-BR" data-theme="dark">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YGPJH1Q4RK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-YGPJH1Q4RK');
+    </script>
+
     <title>Marcus Pereira - Aprenda a desenvolver aplicações de maneira divertida</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <meta name="generator" content="Rails 7.0.8" />
+    <meta property="og:title" content="Marcus Pereira" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta name="description" content="Desenvolvedor com mais de 6 anos de experiência em desenvolvimento de software." />
+    <meta property="og:description"
+      content="Desenvolvedor com mais de 6 anos de experiência em desenvolvimento de software." />
+    <link rel="canonical" href="https://marcuspereira.dev/" />
+    <meta property="og:url" content="https://marcuspereira.dev/" />
+    <meta property="og:site_name" content="Marcus Pereira" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:image" content="/assets/images/banner.png" />
+    <meta property="twitter:title" content="Marcus Pereira" />
+    <meta name="twitter:site" content="@marcuxyz" />
+    <meta name="twitter:creator" content="@marcuxyz" />
 
     <link rel="shortcut icon" href="<%= image_path 'favicon.ico' %>">
 
@@ -24,7 +50,9 @@
         <p class="notice"><%= flash[:notice] %></p>
       <% end %>
 
-      <%= yield %>
+      <section>
+        <%= yield %>
+      </section>
     </main>
 
     <%= render 'shared/footer' %>

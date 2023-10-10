@@ -1,11 +1,23 @@
-<div class='grid contents'>
-  <% posts.each do |post| %>
+<article>
+  <a href='<%= post_path(post) %>'>
+    <h3><%= post.title %></h3>
+  </a>
+  <p> <%= post.content.to_plain_text.slice(1, 80) %> ... </p>
+
+  <footer class="flex">
     <div>
-      <a class='published_content' href='<%= post_path(post) %>'>
-        <article  data-category='<%= post.category.name %>'>
-          <h5><%= post.title %></h5>
-        </article>
-      </a>
+      <p>
+         <%= image_tag 'logo.jpeg', { class: 'avatar', alt: "Marcus Pereira" } %>
+        <span class="author">Marcus Almeida • 09 Set, 2023</span>
+      </p>
     </div>
-  <% end %>
-</div>
+
+    <div>
+      <p>
+        <mark>
+          <%= post.category.name %>
+        </mark>
+      </p>
+    </div>
+  </footer>
+</article>

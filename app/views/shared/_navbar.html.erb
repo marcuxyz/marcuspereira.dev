@@ -3,21 +3,18 @@
     <nav>
       <ul class="text-center">
         <li>
-          <a href="<%= root_path %>">
+          <%= link_to root_path do %>
             <%= image_tag 'logo.jpeg', { class: 'avatar', alt: "Marcus Pereira" } %>
-            <strong>Marcus Pereira</strong>
-          </a>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to 'Marcus Pereira', root_path %>
         </li>
       </ul>
       <ul>
         <li>
           <a href="https://github.com/marcuxyz/" target="_blank">
             <ion-icon name="logo-github"></ion-icon>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/marcuxyz/" target="_blank">
-            <ion-icon name="logo-linkedin"></ion-icon>
           </a>
         </li>
       </ul>

@@ -16,13 +16,13 @@ feature 'Visits Home page' do
       expect(page).to have_content '&COPY; MARCUS PEREIRA · TODOS OS DIREITOS RESERVADOS'
     end
 
-    scenario 'should have published contents' do
+    scenario 'should have only published contents' do
       create(:post, title: 'Creating columns in SQL database', status: :published, category:)
 
       visit root_path
 
       expect(page).to have_content 'Creating columns in SQL database'
-      expect(page).to have_css("article[data-category*='Ruby']")
+      expect(page).to have_content 'Ruby'
     end
 
     scenario 'should have 6 published contents' do
@@ -31,7 +31,7 @@ feature 'Visits Home page' do
       visit root_path
 
       contents.each do |_content|
-        expect(page).to have_css('.published_content', count: 6)
+        expect(page).to have_css('.contents article', count: 8)
       end
     end
 
@@ -57,13 +57,13 @@ feature 'Visits Home page' do
 
       visit root_path
 
-      within 'section > div > div:nth-child(1) > a > article' do
+      within 'section > div > div:nth-child(1) > article' do
         expect(page).to have_content('About Remix framework')
       end
-      within 'section > div > div:nth-child(2) > a > article' do
+      within 'section > div > div:nth-child(2) > article' do
         expect(page).to have_content('Ruby On Rails - Configure Active Record')
       end
-      within 'section > div > div:nth-child(3) > a > article' do
+      within 'section > div > div:nth-child(3) > article' do
         expect(page).to have_content('OOP With Ruby')
       end
     end
