@@ -6,6 +6,7 @@ FactoryBot.define do
     status         { :published }
     news           { [true, false].sample }
     category
+    user
 
     trait :with_embeded_video do
       after(:create) do |post|

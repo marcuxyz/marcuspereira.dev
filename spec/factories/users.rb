@@ -6,5 +6,9 @@ FactoryBot.define do
     trait :confirmed do
       after(:create, &:confirm)
     end
+
+    trait :with_profile do
+      after(:create) { |user, _| create(:profile, user:) }
+    end
   end
 end

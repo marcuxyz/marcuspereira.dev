@@ -1,0 +1,5 @@
+---
+pt-BR:
+  time:
+    formats:
+      shortdate: "%d %b, %Y"

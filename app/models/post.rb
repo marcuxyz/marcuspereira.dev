@@ -12,6 +12,7 @@ class Post < ApplicationRecord
   validates :title, :content, :slug, presence: true
 
   belongs_to :category
+  belongs_to :user
 
   def audio?
     ['audio/mp4', 'audio/mp3', 'audio/m4a'].include? attachment.content_type
