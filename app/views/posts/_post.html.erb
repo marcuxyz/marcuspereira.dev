@@ -8,7 +8,7 @@
     <div>
       <p>
          <%= image_tag 'logo.jpeg', { class: 'avatar', alt: "Marcus Pereira" } %>
-        <span class="author">Marcus Almeida • 09 Set, 2023</span>
+        <span class="author">Marcus Almeida • <%= I18n.l(post.created_at, format: :shortdate).titleize %></span>
       </p>
     </div>
 

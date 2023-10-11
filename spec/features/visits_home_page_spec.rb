@@ -17,11 +17,14 @@ feature 'Visits Home page' do
     end
 
     scenario 'should have only published contents' do
-      create(:post, title: 'Creating columns in SQL database', status: :published, category:)
+      user = create(:user)
+      create(:profile, first_name: 'Marcus', last_name: 'Pereira', user:)
+      post = create(:post, title: 'Creating columns in SQL database', status: :published, user:)
 
       visit root_path
 
       expect(page).to have_content 'Creating columns in SQL database'
+      expect(page).to have_content "#{post.user.fullname} • #{I18n.l(post.created_at, format: :shortdate).titleize}"
       expect(page).to have_content 'Ruby'
     end
 
