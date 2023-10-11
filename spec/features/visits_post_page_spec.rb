@@ -3,9 +3,10 @@ require 'rails_helper'
 feature 'Visits Post page' do
   context 'when visit page' do
     let(:category) { create(:category, name: 'Ruby') }
+    let(:user)     { create(:user, :with_profile) }
 
     scenario 'through of home page' do
-      post = create(:post, status: :published, category:)
+      post = create(:post, status: :published, user:)
 
       visit root_path
       click_on post.title
