@@ -8,6 +8,7 @@ RSpec.describe Post, type: :model do
 
     context 'associations' do
       it { should belong_to(:category) }
+      it { should belong_to(:user) }
     end
 
     context 'should have specific status' do
@@ -19,7 +20,8 @@ RSpec.describe Post, type: :model do
     end
 
     context 'should update slug if title changed' do
-      let(:post) { create(:post, title: 'Desenvolvendo aplicações com Ruby') }
+      let!(:user) { create(:user) }
+      let(:post) { create(:post, title: 'Desenvolvendo aplicações com Ruby', user:) }
 
       it {
         expect do

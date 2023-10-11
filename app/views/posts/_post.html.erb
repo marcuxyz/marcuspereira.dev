@@ -1,8 +1,13 @@
 <article>
-  <a href='<%= post_path(post) %>'>
-    <h3><%= post.title %></h3>
-  </a>
-  <p> <%= post.content.to_plain_text.slice(1, 80) %> ... </p>
+  <%= link_to post_path(post)  do %>
+    <h3>
+      <%= post.title %>
+    </h3>
+  <% end %>
+
+  <p>
+    <%= post.content.to_plain_text.slice(0, 80) %> ...
+  </p>
 
   <footer class="flex">
     <div>
