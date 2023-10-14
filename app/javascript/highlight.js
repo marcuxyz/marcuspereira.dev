@@ -3,6 +3,7 @@ import hljs from "highlight.js"
 const languages = [
   'ruby',
   'erb',
+  'elixir',
   'bash',
   'yaml',
   'json',
