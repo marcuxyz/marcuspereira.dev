@@ -1,4 +1,10 @@
 name: "Run rspec to execute tests"
+
+env:
+  RAILS_ENV: test
+  POSTGRES_HOST: localhost
+  POSTGRES_USERNAME: postgres
+  POSTGRES_PASSWORD: postgres
 on:
   push:
     branches: [ "main" ]
@@ -7,19 +13,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
-    services:
-      postgres:
-        image: postgres
-        ports:
-          - "5432:5432"
-        env:
-          POSTGRES_PASSWORD: postgres
-    env:
-      RAILS_ENV: test
-      POSTGRES_HOST: localhost
-      POSTGRES_USERNAME: postgres
-      POSTGRES_PASSWORD: postgres
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -28,7 +21,12 @@ jobs:
         with:
           ruby-version: 3.2.0
           bundler-cache: true
+
+      - name: Docker services
+        run: docker-compose up -d
+
       - name: Set up application
         run: rake db:test:prepare
+
       - name: Run tests
         run: bundle exec rspec

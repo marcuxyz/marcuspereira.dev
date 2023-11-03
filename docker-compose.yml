@@ -12,8 +12,10 @@ services:
       - "3000:3000"
     depends_on:
       - db
-    env_file:
-      - .env
+    environment:
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_USERNAME: ${POSTGRES_USERNAME}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     networks:
       - database
   db:
